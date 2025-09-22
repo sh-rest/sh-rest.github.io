@@ -1,216 +1,64 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Mail, Linkedin, Github, Send } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Github, Linkedin, Mail, Send } from 'lucide-react';
+
+const socialLinks = [
+  { icon: Mail, href: 'mailto:theshresthjain@gmail.com', name: 'Email' },
+  { icon: Linkedin, href: 'https://linkedin.com/in/shresth-jain', name: 'LinkedIn' },
+  { icon: Github, href: 'https://github.com/shresth-jain', name: 'GitHub' },
+];
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-  }
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const leftVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
-  }
-
-  const rightVariants = {
-    hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6, ease: "easeOut", delay: 0.2 }
-    }
-  }
-
-  const socialLinks = [
-    {
-      icon: Mail,
-      label: 'Email',
-      href: 'mailto:theshresthjain@gmail.com',
-      color: 'hover:text-red-500'
-    },
-    {
-      icon: Linkedin,
-      label: 'LinkedIn',
-      href: 'https://linkedin.com/in/shresth-jain',
-      color: 'hover:text-blue-600'
-    },
-    {
-      icon: Github,
-      label: 'GitHub',
-      href: 'https://github.com/shresth-jain',
-      color: 'hover:text-gray-600'
-    }
-  ]
-
   return (
-  <section id="contact" className="py-20 md:py-32 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto px-4">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Let's Connect
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            I'm always interested in hearing about new opportunities and interesting projects. 
-            Let's discuss how we can work together.
-          </p>
-        </motion.div>
+    <section id="contact" className="py-20 md:py-32 bg-gray-50 dark:bg-gray-900">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">Let's Connect</h2>
+        <p className="text-lg text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+          I'm always open to discussing new projects, creative ideas, or opportunities to be part of something amazing.
+        </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Contact Form */}
+        <div className="grid md:grid-cols-2 gap-12">
           <motion.div
-            variants={leftVariants}
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
           >
-            <motion.form
-              onSubmit={handleSubmit}
-              className="space-y-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <div>
-                <Input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="h-12"
-                />
-              </div>
-              
-              <div>
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="h-12"
-                />
-              </div>
-              
-              <div>
-                <Textarea
-                  name="message"
-                  placeholder="Your Message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="resize-none"
-                />
-              </div>
-              
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full bg-primary hover:bg-primary/90 text-white"
-              >
-                <Send className="h-5 w-5 mr-2" />
-                Send Message
+            <form className="space-y-4">
+              <Input type="text" placeholder="Your Name" className="bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700" />
+              <Input type="email" placeholder="Your Email" className="bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700" />
+              <Textarea placeholder="Your Message" rows={5} className="bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700" />
+              <Button type="submit" size="lg" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                <Send className="mr-2 h-5 w-5" /> Send Message
               </Button>
-            </motion.form>
+            </form>
           </motion.div>
-
-          {/* Social Links */}
           <motion.div
             className="flex flex-col justify-center"
-            variants={rightVariants}
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
           >
-            <motion.h3
-              className="text-2xl font-bold mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              Get in Touch
-            </motion.h3>
-            
-            <motion.div
-              className="space-y-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              {socialLinks.map((link, index) => {
-                const IconComponent = link.icon
-                return (
-                  <motion.a
-                    key={index}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center space-x-4 p-4 rounded-lg bg-card border border-border hover:shadow-lg transition-all duration-300 ${link.color}`}
-                    whileHover={{ x: 5, scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                  >
-                    <IconComponent className="h-6 w-6" />
-                    <span className="font-medium text-lg">{link.label}</span>
-                  </motion.a>
-                )
-              })}
-            </motion.div>
+            <div className="space-y-4">
+              {socialLinks.map(link => (
+                <a key={link.name} href={link.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                  <link.icon className="w-6 h-6 text-blue-500" />
+                  <span className="font-medium text-gray-700 dark:text-gray-300">{link.name}</span>
+                </a>
+              ))}
+            </div>
           </motion.div>
         </div>
-
-        {/* Footer */}
-        <motion.div
-          className="text-center mt-16 pt-8 border-t border-border"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          <p className="text-muted-foreground">
-            © 2024 Shresth Jain. Built with React, Framer Motion, and Tailwind CSS.
-          </p>
-        </motion.div>
       </div>
+      <footer className="text-center mt-20 text-gray-500 dark:text-gray-400 text-sm">
+        &copy; {new Date().getFullYear()} Shresth Jain. Built with passion.
+      </footer>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

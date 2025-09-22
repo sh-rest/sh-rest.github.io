@@ -3,8 +3,16 @@
     "role": "Software Engineer-1",
     "company": "NetApp",
     "location": "Bangalore, India",
-    "start_date": "2023-07-01",
+    "start_date": "2025-07-28",
     "end_date": null,
     "description": "Developing and maintaining enterprise storage solutions, contributing to scalable software systems and implementing innovative features for data management products."
+  },
+  {
+    "role": "Intern - Software Engineer",
+    "company": "Mercedes Benz Research & Development India",
+    "location": "Bangalore, India",
+    "start_date": "2024-07-13",
+    "end_date": "2024-12-20",
+    "description": "Worked on developing robust machine learning models."
   }
 ]
