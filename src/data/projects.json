@@ -1,0 +1,23 @@
+[
+  {
+    "title": "AI-Powered Code Reviewer",
+    "description": "Intelligent code review system that analyzes code quality, suggests improvements, and detects potential bugs using advanced AI algorithms.",
+    "tech_stack": ["React", "Node.js", "GraphQL", "Docker", "OpenAI API"],
+    "project_url": "https://github.com/shresth-jain/ai-code-reviewer",
+    "image_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop"
+  },
+  {
+    "title": "Real-time Collaborative Whiteboard",
+    "description": "Multi-user collaborative whiteboard application with real-time synchronization, drawing tools, and persistent storage.",
+    "tech_stack": ["Next.js", "TypeScript", "Socket.IO", "Redis"],
+    "project_url": "https://github.com/shresth-jain/collaborative-whiteboard",
+    "image_url": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=200&fit=crop"
+  },
+  {
+    "title": "Personal Finance Dashboard",
+    "description": "Comprehensive financial management platform with budget tracking, expense categorization, and financial insights visualization.",
+    "tech_stack": ["Vue.js", "Chart.js", "Plaid API", "Firebase", "Python"],
+    "project_url": "https://github.com/shresth-jain/finance-dashboard",
+    "image_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop"
+  }
+]
