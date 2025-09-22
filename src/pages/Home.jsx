@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <Layout>
       <Hero />
-      <Metrics />
+      {/* <Metrics /> */}
       <About />
       <Projects />
       <Experience />
