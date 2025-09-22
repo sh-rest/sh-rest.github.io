@@ -58,7 +58,7 @@ const Header = ({ theme, toggleTheme }) => {
             onClick={() => scrollToSection('contact')}
             className="hidden sm:inline-block px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20 dark:shadow-blue-500/30"
           >
-            Hire Me
+            Let's Connect
           </button>
         </div>
       </div>

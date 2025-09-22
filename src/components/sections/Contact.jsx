@@ -12,6 +12,16 @@ const socialLinks = [
 ];
 
 const Contact = () => {
+  // Form handler to log entries
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.elements[0].value;
+    const email = form.elements[1].value;
+    const message = form.elements[2].value;
+    console.log({ name, email, message });
+    // You can replace this with any medium (alert, API, etc.)
+  };
   return (
     <section id="contact" className="py-20 md:py-32 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
@@ -27,7 +37,7 @@ const Contact = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
           >
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <Input type="text" placeholder="Your Name" className="bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700" />
               <Input type="email" placeholder="Your Email" className="bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700" />
               <Textarea placeholder="Your Message" rows={5} className="bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700" />

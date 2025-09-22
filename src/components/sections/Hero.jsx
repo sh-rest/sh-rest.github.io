@@ -16,7 +16,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Hi, I’m Shresth. I build software—and businesses.
+          Hi, I’m Shresth. I build software.
         </motion.h1>
         <motion.p 
           className="text-lg md:text-xl text-blue-600 dark:text-blue-400 font-medium"
@@ -24,7 +24,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Software Engineer | Startup Aspirant | Builder
+          Software Engineer | Builder | BITSian
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
