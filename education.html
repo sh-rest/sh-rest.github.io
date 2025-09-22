@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education | Shresth Jain</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fff;
+            min-height: 100vh;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .nav-container {
+            background: #fff;
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 20px 30px;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        nav a:hover, nav a.active {
+            background: #f8f9fa;
+            border-bottom-color: #74b9ff;
+            color: #2c3e50;
+        }
+        
+        .main-content {
+            padding: 60px 40px;
+        }
+        
+        .education-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #74b9ff, #0984e3);
+        }
+        
+        .education-item {
+            position: relative;
+            margin-bottom: 40px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-left: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .education-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -35px;
+            top: 30px;
+            width: 12px;
+            height: 12px;
+            background: #74b9ff;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #74b9ff;
+        }
+        
+        .degree {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .institution {
+            font-size: 1.2rem;
+            color: #74b9ff;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .duration {
+            font-size: 1rem;
+            color: #636e72;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .description {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .achievements {
+            margin-top: 20px;
+        }
+        
+        .achievements h4 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .achievements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .achievements li {
+            color: #555;
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .achievements li::before {
+            content: '•';
+            color: #74b9ff;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .skills-gained {
+            margin-top: 20px;
+        }
+        
+        .skills-gained h4 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .certifications {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .certifications h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .certifications p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav a {
+                padding: 15px 20px;
+                font-size: 1rem;
+            }
+            
+            .main-content {
+                padding: 40px 20px;
+            }
+            
+            .timeline {
+                padding-left: 20px;
+            }
+            
+            .education-item {
+                margin-left: 10px;
+                padding: 20px;
+            }
+            
+            .education-item::before {
+                left: -25px;
+            }
+            
+            .degree {
+                font-size: 1.3rem;
+            }
+            
+            .skill-tags {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Education</h1>
+            <p>Academic background and qualifications</p>
+        </header>
+        
+        <div class="nav-container">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Me</a>
+                <a href="education.html" class="active">Education</a>
+                <a href="work.html">Work Experience</a>
+                <a href="projects.html">Projects</a>
+            </nav>
+        </div>
+        
+        <main class="main-content">
+            <section class="education-section">
+                <div class="timeline">
+                    <!-- You can customize these education entries based on your actual background -->
+                    <div class="education-item">
+                        <div class="degree">Bachelor of Technology in Computer Science</div>
+                        <div class="institution">[Your University Name]</div>
+                        <div class="duration">[Start Year] - [End Year]</div>
+                        <div class="description">
+                            Completed my undergraduate degree in Computer Science with a focus on software engineering, algorithms, and data structures. Gained comprehensive knowledge in programming fundamentals and software development practices.
+                        </div>
+                        <div class="achievements">
+                            <h4>Key Achievements:</h4>
+                            <ul>
+                                <li>Maintained strong academic performance throughout the program</li>
+                                <li>Participated in coding competitions and hackathons</li>
+                                <li>Completed multiple software development projects</li>
+                                <li>Active member of computer science student organizations</li>
+                            </ul>
+                        </div>
+                        <div class="skills-gained">
+                            <h4>Skills Gained:</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">C++</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Data Structures</span>
+                                <span class="skill-tag">Algorithms</span>
+                                <span class="skill-tag">Database Management</span>
+                                <span class="skill-tag">Software Engineering</span>
+                                <span class="skill-tag">Object-Oriented Programming</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="degree">Higher Secondary Certificate (Class XII)</div>
+                        <div class="institution">[Your School Name]</div>
+                        <div class="duration">[Year]</div>
+                        <div class="description">
+                            Completed higher secondary education with a focus on Science stream, including Mathematics, Physics, and Chemistry. Built a strong foundation in analytical thinking and problem-solving.
+                        </div>
+                        <div class="achievements">
+                            <h4>Key Achievements:</h4>
+                            <ul>
+                                <li>Achieved excellent grades in Mathematics and Science subjects</li>
+                                <li>Participated in science exhibitions and competitions</li>
+                                <li>Developed strong analytical and logical reasoning skills</li>
+                            </ul>
+                        </div>
+                        <div class="skills-gained">
+                            <h4>Foundation Skills:</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Mathematics</span>
+                                <span class="skill-tag">Physics</span>
+                                <span class="skill-tag">Chemistry</span>
+                                <span class="skill-tag">Analytical Thinking</span>
+                                <span class="skill-tag">Problem Solving</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certifications">
+                    <h3>Certifications & Additional Learning</h3>
+                    <p>I believe in continuous learning and regularly pursue online courses and certifications to stay updated with the latest technologies and industry best practices. This includes platforms like Coursera, Udemy, and company-specific training programs.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
