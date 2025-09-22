@@ -4,6 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/sh-rest.github.io/',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
