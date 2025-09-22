@@ -7,8 +7,8 @@ import { Github, Linkedin, Mail, Send } from 'lucide-react';
 
 const socialLinks = [
   { icon: Mail, href: 'mailto:theshresthjain@gmail.com', name: 'Email' },
-  { icon: Linkedin, href: 'https://linkedin.com/in/shresth-jain', name: 'LinkedIn' },
-  { icon: Github, href: 'https://github.com/shresth-jain', name: 'GitHub' },
+  { icon: Linkedin, href: 'https://linkedin.com/in/jainshresth', name: 'LinkedIn' },
+  { icon: Github, href: 'https://github.com/sh-rest', name: 'GitHub' },
 ];
 
 const Contact = () => {
