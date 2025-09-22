@@ -22,7 +22,7 @@ const Contact = () => {
     const message = form.elements[2].value;
     setStatus('Sending...');
     try {
-      const res = await fetch('https://portfolio-9jmf97upg-sj68718-1421s-projects.vercel.app/api/contact', {
+      const res = await fetch('https://portfolio-96242rf24-sj68718-1421s-projects.vercel.app/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, message })
