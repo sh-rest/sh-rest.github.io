@@ -1,57 +1,48 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { ArrowDown } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowDown } from 'lucide-react';
 
 const Hero = () => {
-  const scrollToProjects = () => {
-    const projectsSection = document.getElementById('projects')
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
+    const scrollToProjects = () => {
+        document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+    };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-4">
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.h1
-          className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+    <section className="min-h-screen flex items-center justify-center text-center px-4">
+      <div className="max-w-4xl">
+        <motion.h1 
+          className="text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.5 }}
         >
-          Hi, I'm Shresth.{' '}
-          <span className="block">
-            I build software—and businesses.
-          </span>
+          Hi, I’m Shresth. I build software—and businesses.
         </motion.h1>
-        
-        <motion.p
-          className="text-lg md:text-xl text-primary font-medium mb-12"
+        <motion.p 
+          className="text-lg md:text-xl text-blue-600 dark:text-blue-400 font-medium"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
           Software Engineer | Startup Aspirant | Builder
         </motion.p>
-        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-8"
         >
-          <Button
+          <button
             onClick={scrollToProjects}
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-lg inline-flex items-center space-x-2 text-lg"
+            className="px-8 py-4 text-lg font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/30 flex items-center mx-auto"
           >
-            <span>See my Work</span>
-            <ArrowDown className="h-5 w-5 ml-2" />
-          </Button>
+            See my Work
+            <ArrowDown className="ml-2 h-5 w-5" />
+          </button>
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

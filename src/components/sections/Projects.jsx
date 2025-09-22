@@ -3,84 +3,53 @@ import { motion } from 'framer-motion'
 import { ExternalLink, Github } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { Skeleton } from '@/components/ui/skeleton'
 import projectsData from '@/data/projects.json'
 
-const ProjectCard = ({ project, index }) => {
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { 
-        duration: 0.6, 
-        ease: "easeOut",
-        delay: index * 0.1
-      }
-    }
-  }
-
-  return (
-    <motion.div
-      className="bg-card border border-border rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
-      variants={cardVariants}
-      whileHover={{ y: -5 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-    >
-      <div className="h-48 bg-muted relative overflow-hidden">
-        <img
-          src={project.image_url}
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-        />
+const ProjectCard = ({ project, index }) => (
+  <motion.div
+    className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 flex flex-col"
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    whileHover={{ y: -5, transition: { duration: 0.2 } }}
+  >
+    <img src={project.image_url} alt={project.title} className="w-full h-48 object-cover" />
+    <div className="p-6 flex-grow flex flex-col">
+      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
+      <div className="flex flex-wrap items-start mb-4 min-h-[3.5rem]">
+        <p className="text-gray-600 dark:text-gray-400 text-sm flex-1 break-words mr-2">{project.description}</p>
+        <Button
+          asChild
+          variant="secondary"
+          className="w-14 h-14 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-700"
+        >
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <Github className="h-7 w-7 text-gray-700 dark:text-gray-200" />
+          </a>
+        </Button>
       </div>
-      
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-3">{project.title}</h3>
-        <p className="text-muted-foreground mb-4 line-clamp-3">
-          {project.description}
-        </p>
-        
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.tech_stack.map((tech, techIndex) => (
-            <Badge key={techIndex} variant="secondary" className="bg-primary/10 text-primary">
-              {tech}
-            </Badge>
-          ))}
-        </div>
-        
-        <div className="flex gap-3">
-          <Button variant="outline" size="sm" className="flex-1">
-            <ExternalLink className="h-4 w-4 mr-2" />
-            Live Demo
-          </Button>
-          <Button variant="secondary" size="sm" className="flex-1">
-            <Github className="h-4 w-4 mr-2" />
-            GitHub
-          </Button>
-        </div>
+      <div className="mb-4 flex flex-wrap gap-2">
+        {project.tech_stack.map((tech) => (
+          <Badge key={tech} variant="secondary" className="bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">
+            {tech}
+          </Badge>
+        ))}
       </div>
-    </motion.div>
-  )
-}
+    </div>
+  </motion.div>
+)
 
 const ProjectSkeleton = () => (
-  <div className="bg-card border border-border rounded-lg shadow-lg overflow-hidden animate-pulse">
-    <div className="h-48 bg-muted"></div>
-    <div className="p-6">
-      <div className="h-6 bg-muted rounded mb-3"></div>
-      <div className="space-y-2 mb-4">
-        <div className="h-4 bg-muted rounded"></div>
-        <div className="h-4 bg-muted rounded w-3/4"></div>
-      </div>
-      <div className="flex gap-2 mb-6">
-        <div className="h-6 w-16 bg-muted rounded-full"></div>
-        <div className="h-6 w-20 bg-muted rounded-full"></div>
-        <div className="h-6 w-14 bg-muted rounded-full"></div>
-      </div>
-      <div className="flex gap-3">
-        <div className="h-8 bg-muted rounded flex-1"></div>
-        <div className="h-8 bg-muted rounded flex-1"></div>
-      </div>
+  <div className="bg-white dark:bg-gray-900 rounded-lg p-4 space-y-4 border border-gray-200 dark:border-gray-800">
+    <Skeleton className="h-48 w-full" />
+    <Skeleton className="h-6 w-3/4" />
+    <Skeleton className="h-4 w-full" />
+    <Skeleton className="h-4 w-5/6" />
+    <div className="flex gap-2">
+      <Skeleton className="h-6 w-16 rounded-full" />
+      <Skeleton className="h-6 w-20 rounded-full" />
     </div>
   </div>
 )
@@ -99,51 +68,19 @@ const Projects = () => {
     return () => clearTimeout(timer)
   }, [])
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  }
-
   return (
-    <section id="projects" className="py-20 md:py-32 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Projects / Portfolio
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A collection of projects that showcase my skills and passion for building innovative solutions.
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          {loading
-            ? Array.from({ length: 3 }).map((_, index) => (
-                <ProjectSkeleton key={index} />
-              ))
-            : projects.map((project, index) => (
-                <ProjectCard key={index} project={project} index={index} />
-              ))
-          }
-        </motion.div>
+    <section id="projects" className="py-20 md:py-32 bg-gray-50 dark:bg-gray-900">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Projects / Portfolio</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {loading ? (
+            Array.from({ length: 3 }).map((_, i) => (
+              <ProjectSkeleton key={i} />
+            ))
+          ) : (
+            projects.map((project, index) => <ProjectCard key={project.id || index} project={project} index={index} />)
+          )}
+        </div>
       </div>
     </section>
   )
