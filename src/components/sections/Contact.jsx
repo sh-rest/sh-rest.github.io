@@ -12,15 +12,31 @@ const socialLinks = [
 ];
 
 const Contact = () => {
-  // Form handler to log entries
-  const handleSubmit = (e) => {
+  // Form handler to send entries to backend
+  const [status, setStatus] = React.useState(null);
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.elements[0].value;
     const email = form.elements[1].value;
     const message = form.elements[2].value;
-    console.log({ name, email, message });
-    // You can replace this with any medium (alert, API, etc.)
+    setStatus('Sending...');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setStatus('Message sent successfully!');
+        form.reset();
+      } else {
+        setStatus(data.error || 'Failed to send message.');
+      }
+    } catch (err) {
+      setStatus('Failed to send message.');
+    }
   };
   return (
     <section id="contact" className="py-20 md:py-32 bg-gray-50 dark:bg-gray-900">
@@ -44,6 +60,9 @@ const Contact = () => {
               <Button type="submit" size="lg" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
                 <Send className="mr-2 h-5 w-5" /> Send Message
               </Button>
+              {status && (
+                <div className="text-center text-sm mt-2 text-gray-700 dark:text-gray-300">{status}</div>
+              )}
             </form>
           </motion.div>
           <motion.div
