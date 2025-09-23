@@ -20,15 +20,17 @@ const ProjectCard = ({ project, index }) => (
       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
       <div className="flex flex-wrap items-start mb-4 min-h-[3.5rem]">
         <p className="text-gray-600 dark:text-gray-400 text-sm flex-1 break-words mr-2">{project.description}</p>
-        <Button
-          asChild
-          variant="secondary"
-          className="w-14 h-14 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-700"
-        >
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <Github className="h-7 w-7 text-gray-700 dark:text-gray-200" />
-          </a>
-        </Button>
+        {project.project_url && (
+          <Button
+            asChild
+            variant="secondary"
+            className="w-14 h-14 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-700"
+          >
+            <a href={project.project_url} target="_blank" rel="noopener noreferrer">
+              <Github className="h-7 w-7 text-gray-700 dark:text-gray-200" />
+            </a>
+          </Button>
+        )}
       </div>
       <div className="mb-4 flex flex-wrap gap-2">
         {project.tech_stack.map((tech) => (

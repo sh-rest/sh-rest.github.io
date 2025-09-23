@@ -5,7 +5,8 @@
     "location": "Bangalore, India",
     "start_date": "2025-07-28",
     "end_date": null,
-    "description": "Developing and maintaining enterprise storage solutions, contributing to scalable software systems and implementing innovative features for data management products."
+    "description": "Developing tools to increase performance analysis of cloud systems, maintaining reliability of cloud testing infrastructure.",
+    "tech_stack": ["Cloud", "Unix", "Python", "React", "Node.js"]
   },
   {
     "role": "Intern - Software Engineer",
@@ -13,6 +14,16 @@
     "location": "Bangalore, India",
     "start_date": "2024-07-13",
     "end_date": "2024-12-20",
-    "description": "Worked on developing robust machine learning models."
+    "description": "Engineered custom neural network in NumPy for embedded systems, achieving lengths in model compression and robustness.",
+    "tech_stack": ["Python", "NumPy", "C++", "MATLAB", "Machine Learning"]
+  },
+  {
+    "role": "Student Intern",
+    "company": "CSIR - CRRI",
+    "location": "New Delhi, India",
+    "start_date": "2023-05-15",
+    "end_date": "2023-07-15",
+    "description": "Developed an OpenCV based video processing application to analyze road width, increasing efficiency in road measurements",
+    "tech_stack": ["Python", "OpenCV"]
   }
 ]

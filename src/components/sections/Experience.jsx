@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Briefcase, Calendar } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
 import { format } from 'date-fns'
 import experienceData from '@/data/experience.json'
 
@@ -92,6 +93,13 @@ const Experience = () => {
                 <p className="ttext-sm text-gray-600 dark:text-gray-400 mt-2">
                   {exp.description}
                 </p>
+                <div className="mt-2">
+                    {exp.tech_stack.map((tech) => (
+                      <Badge key={tech} variant="secondary" className="bg-gray-100 text-gray-800 dark:bg-gray-900/50 dark:text-gray-300">
+                        {tech}
+                      </Badge>
+                  ))}
+                </div>
               </motion.div>
             </motion.div>
           ))}
