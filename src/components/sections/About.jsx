@@ -1,4 +1,5 @@
 import React from 'react'
+import headshot from '@/assets/headshot.png'
 import { motion } from 'framer-motion'
 
 const About = () => {
@@ -38,7 +39,7 @@ const About = () => {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68c045cca76f1f46c121d3fc/555766218_Frame4.png"
+                src={headshot}
                 alt="Shresth Jain"
                 className="w-full max-w-md mx-auto rounded-2xl shadow-2xl object-cover"
               />
@@ -72,11 +73,14 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p>
-                I'm a passionate software engineer with a strong foundation in building scalable, 
-                user-centric applications. Currently working at NetApp in Bangalore, I specialize 
-                in full-stack development with a focus on modern web technologies and cloud solutions.
+                  I'm an enthusiastic software engineer early in my career, with hands-on 
+                  experience in building web applications and collaborating in agile teams. 
+                  Currently working at NetApp in Bangalore, I enjoy learning new technologies 
+                  and applying them to solve real-world problems. My language strengths include Java, 
+                  Python, and C++, and I'm always eager to expand my skill set and 
+                  take on new challenges.
               </p>
-              
+                            
               <p>
                 Beyond just writing code, I'm deeply interested in the intersection of technology 
                 and business. I believe the best software solutions come from understanding both 
