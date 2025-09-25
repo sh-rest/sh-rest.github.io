@@ -5,6 +5,7 @@ import Metrics from '@/components/sections/Metrics'
 import About from '@/components/sections/About'
 import Projects from '@/components/sections/Projects'
 import Experience from '@/components/sections/Experience'
+import Education from '@/components/sections/Education'
 import Contact from '@/components/sections/Contact'
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
       <Hero />
       {/* <Metrics /> */}
       <About />
+      <Education />
       <Projects />
       <Experience />
       <Contact />

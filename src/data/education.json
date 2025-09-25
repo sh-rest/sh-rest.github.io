@@ -1,10 +1,20 @@
 [
   {
-    "institution": "XYZ University",
-    "degree": "Bachelor of Technology",
-    "field_of_study": "Computer Science and Engineering",
-    "start_date": "2019-08-01",
-    "end_date": "2023-05-31",
-    "details": "Graduated with distinction, focusing on software engineering, algorithms, and data structures."
+    "institution": "Birla Institute of Technology and Science, Pilani",
+    "degree": "Bachelor of Engineering",
+    "field_of_study": "Electrical and Electronics Engineering",
+    "start_date": "2021-12-15",
+    "end_date": "2025-05-15",
+    "location": "Pilani, Rajasthan",
+    "gpa": "7.16",
+    "details": "Focused on software engineering, algorithms, and modern computing technologies.",
+    "coursework": [
+      "Data Structures and Algorithms",
+      "Object-Oriented Programming",
+      "Database Systems",
+      "Operating Systems",
+      "Machine Learning",
+      "Digital Design"
+    ]
   }
 ]

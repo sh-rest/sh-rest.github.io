@@ -22,7 +22,7 @@ const About = () => {
   }
 
   return (
-    <section id="about" className="py-20 md:py-32">
+  <section id="about" className="py-20 md:py-32 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
           {/* Image */}
