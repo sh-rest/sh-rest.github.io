@@ -4,20 +4,20 @@
     "description": "Full-stack Java and React portal for role-based access, automated grading, and dynamic question management.",
     "tech_stack": ["Java", "Spring Boot", "MySQL", "React", "REST API", "Hooks"],
     "project_url": "",
-    "image_url": "/src/assets/test.jpeg"
+    "image_url": "/src/assets/test.png"
   },
   {
     "title": "Railway Reservation System",
     "description": "Java-based ticketing system with MySQL integration and interactive Swing GUI for seamless railway booking.",
     "tech_stack": ["Java", "Swing", "MySQL", "Database Management"],
     "project_url": "",
-    "image_url": "/src/assets/railway.jpeg"
+    "image_url": "/src/assets/railway.png"
   },
   {
     "title": "Road Width Measurement (Video Input)",
     "description": "Python OpenCV application for lane detection and road width estimation from traffic video footage.",
     "tech_stack": ["Python", "OpenCV", "Computer Vision", "Image Processing"],
     "project_url": "",
-    "image_url": "/src/assets/road.jpeg"
+    "image_url": "/src/assets/road.png"
   }
 ]
