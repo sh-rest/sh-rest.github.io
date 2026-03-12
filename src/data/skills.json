@@ -1,0 +1,6 @@
+{
+  "Languages": ["Java", "Python", "C++", "JavaScript"],
+  "Frameworks": ["React", "Spring Boot", "Node.js", "NumPy"],
+  "Tools & Platforms": ["Git", "MySQL", "Unix/Linux", "Cloud", "MATLAB"],
+  "Concepts": ["Machine Learning", "Computer Vision", "REST APIs", "Agile"]
+}

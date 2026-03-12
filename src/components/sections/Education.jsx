@@ -7,7 +7,7 @@ import educationData from '@/data/education.json'
 
 const EducationCard = ({ education, index }) => (
   <motion.div
-    className="bg-white dark:bg-gray-900/80 rounded-xl p-6 border border-gray-200 dark:border-gray-800 hover:border-blue-300 dark:hover:border-blue-500/30 hover:shadow-lg transition-all duration-300"
+    className="bg-white dark:bg-gray-900/80 rounded-xl p-6 border border-gray-200 dark:border-gray-800 hover:border-teal-300 dark:hover:border-teal-500/30 hover:shadow-lg transition-all duration-300"
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.2 }}
@@ -18,7 +18,7 @@ const EducationCard = ({ education, index }) => (
         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
           {education.degree} in {education.field_of_study}
         </h3>
-        <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">
+        <p className="text-lg font-semibold text-teal-600 dark:text-teal-400 mb-2">
           {education.institution}
         </p>
         <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-3">
@@ -103,7 +103,7 @@ const Education = () => {
   return (
     <section id="education" className="py-20 md:py-32">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">Education</h2>
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">Education</h2>
         <div className="max-w-4xl mx-auto space-y-8">
           {loading ? (
             Array.from({ length: 1 }).map((_, i) => (

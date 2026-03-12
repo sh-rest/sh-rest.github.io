@@ -25,7 +25,7 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#3B82F6",
+          DEFAULT: "#14B8A6",
           foreground: "#ffffff",
         },
         secondary: {
@@ -74,6 +74,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        display: ['Syne', 'sans-serif'],
       },
     },
   },
