@@ -41,7 +41,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 md:py-32 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">Let's Connect</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-4">Let's Connect</h2>
         <p className="text-lg text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
           I'm always open to discussing new projects, creative ideas, or opportunities to be part of something amazing.
         </p>
@@ -72,10 +72,18 @@ const Contact = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="space-y-4">
+            <div className="space-y-3">
               {socialLinks.map(link => (
-                <a key={link.name} href={link.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                  <link.icon className="w-6 h-6 text-blue-500" />
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-xl border border-transparent hover:border-gray-200 dark:hover:border-gray-700 hover:bg-gray-50 dark:hover:bg-white/5 transition-all duration-200 group"
+                >
+                  <span className="p-2 rounded-lg bg-blue-50 dark:bg-blue-500/10 group-hover:bg-blue-100 dark:group-hover:bg-blue-500/20 transition-colors">
+                    <link.icon className="w-5 h-5 text-blue-500" />
+                  </span>
                   <span className="font-medium text-gray-700 dark:text-gray-300">{link.name}</span>
                 </a>
               ))}
@@ -83,7 +91,7 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
-      <footer className="text-center mt-20 text-gray-500 dark:text-gray-400 text-sm">
+      <footer className="text-center mt-20 pt-8 border-t border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400 text-sm">
         &copy; {new Date().getFullYear()} Shresth Jain. Built with passion.
       </footer>
     </section>
