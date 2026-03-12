@@ -22,7 +22,7 @@ const Metrics = () => {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <metric.icon className="w-10 h-10 text-blue-500 mb-2" />
+              <metric.icon className="w-10 h-10 text-teal-500 mb-2" />
               <p className="text-3xl font-bold text-gray-900 dark:text-white">{metric.value}</p>
               <p className="text-sm text-gray-500 dark:text-gray-400">{metric.label}</p>
             </motion.div>

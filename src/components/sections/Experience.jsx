@@ -41,7 +41,7 @@ const Experience = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Experience
           </h2>
         </motion.div>
@@ -55,50 +55,63 @@ const Experience = () => {
         >
           <div className="absolute left-[1.15rem] md:left-[1.65rem] top-6 bottom-6 w-px bg-gray-200 dark:bg-gray-800" />
 
-          {experienceData.map((exp, index) => (
-            <motion.div
-              key={index}
-              className="relative pl-14 md:pl-20 pb-12 last:pb-0"
-              variants={itemVariants}
-            >
+          {experienceData.map((exp, index) => {
+            const isCurrent = !exp.end_date;
+            return (
               <motion.div
-                className="absolute left-0 md:left-1 w-10 h-10 flex items-center justify-center"
-                style={{ top: '0.25rem' }}
-                whileHover={{ scale: 1.15 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                key={index}
+                className="relative pl-14 md:pl-20 pb-12 last:pb-0"
+                variants={itemVariants}
               >
-                <span className="w-10 h-10 rounded-full flex items-center justify-center bg-blue-500/10 dark:bg-blue-500/15 ring-2 ring-blue-500/20">
-                  <Briefcase className="h-4 w-4 text-blue-500" />
-                </span>
-              </motion.div>
+                <motion.div
+                  className="absolute left-0 md:left-1 w-10 h-10 flex items-center justify-center"
+                  style={{ top: '0.25rem' }}
+                  whileHover={{ scale: 1.15 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <span className={`relative w-10 h-10 rounded-full flex items-center justify-center ring-2 ${
+                    isCurrent
+                      ? 'bg-teal-500/20 dark:bg-teal-500/25 ring-teal-500/40 timeline-pulse'
+                      : 'bg-teal-500/10 dark:bg-teal-500/15 ring-teal-500/20'
+                  }`}>
+                    <Briefcase className="h-4 w-4 text-teal-500 relative z-10" />
+                  </span>
+                </motion.div>
 
-              <motion.div
-                whileHover={{ y: -2 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <div className="flex flex-col gap-1 mb-3">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Calendar className="w-4 h-4" />
-                    {formatDate(exp.start_date)} - {formatDate(exp.end_date)}
+                <motion.div
+                  className={`rounded-xl transition-all ${isCurrent ? 'p-4 -ml-2 border border-teal-200/50 dark:border-teal-500/10 bg-teal-50/30 dark:bg-teal-500/[0.03]' : ''}`}
+                  whileHover={{ y: -2 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <div className="flex flex-col gap-1 mb-3">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Calendar className="w-4 h-4" />
+                      {formatDate(exp.start_date)} - {formatDate(exp.end_date)}
+                      {isCurrent && (
+                        <span className="ml-1 px-2 py-0.5 text-xs font-medium bg-teal-100 text-teal-700 dark:bg-teal-500/15 dark:text-teal-400 rounded-full">
+                          Current
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="font-display text-xl font-bold text-gray-900 dark:text-white mt-1">{exp.role}</h3>
+                    <p className="text-base text-gray-700 dark:text-gray-300 font-medium">
+                      {exp.company} &bull; {exp.location}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-1">{exp.role}</h3>
-                  <p className="text-base text-gray-700 dark:text-gray-300 font-medium">
-                    {exp.company} &bull; {exp.location}
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">
+                    {exp.description}
                   </p>
-                </div>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">
-                  {exp.description}
-                </p>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {exp.tech_stack.map((tech) => (
-                    <Badge key={tech} variant="secondary" className="bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {exp.tech_stack.map((tech) => (
+                      <Badge key={tech} variant="secondary" className="bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          ))}
+            );
+          })}
         </motion.div>
       </div>
     </section>

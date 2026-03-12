@@ -6,7 +6,7 @@ import Header from '@/components/shared/Header'
 const Layout = ({ children }) => {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-background text-foreground">
+      <div className="min-h-screen bg-background text-foreground grain-overlay">
         <Header />
         <AnimatePresence mode="wait">
           <motion.main

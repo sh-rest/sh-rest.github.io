@@ -13,6 +13,7 @@ const navLinks = [
 const Header = ({ theme, toggleTheme }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +21,26 @@ const Header = ({ theme, toggleTheme }) => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = navLinks.map(l => l.id);
+    const observers = [];
+
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        { rootMargin: '-40% 0px -55% 0px' }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach(o => o.disconnect());
   }, []);
 
   useEffect(() => {
@@ -49,8 +70,8 @@ const Header = ({ theme, toggleTheme }) => {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <Code2 className="w-7 h-7 text-blue-500" />
-            <span className="text-lg font-bold text-gray-900 dark:text-white">Shresth Jain</span>
+            <Code2 className="w-7 h-7 text-teal-500" />
+            <span className="font-display text-lg font-bold text-gray-900 dark:text-white">Shresth Jain</span>
           </div>
 
           {/* Desktop nav */}
@@ -59,7 +80,11 @@ const Header = ({ theme, toggleTheme }) => {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 rounded-lg hover:bg-gray-100 dark:hover:bg-white/5 transition-all duration-200"
+                className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                  activeSection === link.id
+                    ? 'text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-500/10'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 hover:bg-gray-100 dark:hover:bg-white/5'
+                }`}
               >
                 {link.name}
               </button>
@@ -70,7 +95,7 @@ const Header = ({ theme, toggleTheme }) => {
             <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
             <button 
               onClick={() => scrollToSection('contact')}
-              className="hidden md:inline-block px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20 dark:shadow-blue-500/30"
+              className="hidden md:inline-block px-4 py-2 text-sm font-medium text-white bg-teal-600 rounded-lg hover:bg-teal-700 transition-colors shadow-lg shadow-teal-500/20 dark:shadow-teal-500/30"
             >
               Let's Connect
             </button>
@@ -112,7 +137,11 @@ const Header = ({ theme, toggleTheme }) => {
                 <motion.button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="text-left px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-white/5 rounded-lg transition-colors"
+                  className={`text-left px-4 py-3 text-base font-medium rounded-lg transition-colors ${
+                    activeSection === link.id
+                      ? 'text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-500/10'
+                      : 'text-gray-700 dark:text-gray-200 hover:text-teal-500 dark:hover:text-teal-400 hover:bg-gray-50 dark:hover:bg-white/5'
+                  }`}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 + i * 0.05 }}
@@ -123,7 +152,7 @@ const Header = ({ theme, toggleTheme }) => {
               <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="w-full px-4 py-3 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="w-full px-4 py-3 text-sm font-medium text-white bg-teal-600 rounded-lg hover:bg-teal-700 transition-colors"
                 >
                   Let's Connect
                 </button>
